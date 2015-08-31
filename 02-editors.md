@@ -31,7 +31,7 @@ Both Emacs and vim have built-in interactive tutorials that you can try.
 
 What terminal editor will you use? How did you make your decision?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> I chose Emacs because I've heard of it before and what I've heard has been positive.  I pretty much hadn't heard of the others at all.  Had I had more time, I may have tried to make a better informed decision.
 
 ---
 
@@ -61,6 +61,6 @@ We will also use Jupyter (IPython) notebooks, but this does not remove the need 
 
 What graphical editor will you use? How did you make your decision? What are some interesting features of your editor? What are some useful keyboard shortcuts for your editor? How do you customize your editor?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+I am going with Sublime, because I've used it before.  What I like about it is that once you name your file, it employs smart auto-fills and color-coordinations, which I have found save time and help me organize the work.  I haven't tried playing around with customizing it yet, but I will certainly do so sooner rather than later.
 
 ---
