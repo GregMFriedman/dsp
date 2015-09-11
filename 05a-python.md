@@ -12,7 +12,7 @@ For quick and easy interactive practice with Python, many people enjoy [Codecade
 
 How are Python lists and tuples similar and different? Which will work as keys in dictionaries? Why?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Tuples and lists are both sequences of values that can be any type, but tuples are immutable and lists are not.  Tuples can be keys because of their immutability.  Changing a key after it has been assigned a value will cause unpredictable outcomes when the dictionary looks it up in its hashtable.  So lists cannot be keys, because they are mutable and thus not hashable.  
 
 ---
 
@@ -20,7 +20,7 @@ How are Python lists and tuples similar and different? Which will work as keys i
 
 How are Python lists and sets similar and different? Give examples of using both. How does performance compare between lists and sets for finding an element. Why?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Sets and lists both have lengths and they both support the constructs: "x in (set/list) or "for x in (set/list)." One key difference is that lists are ordered sequences, while sets are unordered collections, which means they don't support slicing, nor do they record element position or order of insertion.  Therefore, it's generally harder to find an element of a set than it is for a list.
 
 ---
 
@@ -28,7 +28,7 @@ How are Python lists and sets similar and different? Give examples of using both
 
 Describe Python's `lambda`. What is it, and what is it used for? Give at least one example, including an example of using a `lambda` in the `key` argument to `sorted`.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Python's lambda is an "anonymous" function, which is designed to be executed during runtime.  Python's lambda can be used when sorting, in order to tell which part of a tuple to use for sorting a list.
 
 ---
 
@@ -36,7 +36,38 @@ Describe Python's `lambda`. What is it, and what is it used for? Give at least o
 
 Explain list comprehensions. Give examples and show equivalents with `map` and `filter`. How do their capabilities compare? Also demonstrate set comprehensions and dictionary comprehensions.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> A list comprehension is a way to create a list by specifying a logic for generating the members and a range. For example: 
+
+new_list = [x**3 for x in range(1,3)]
+
+[1, 8]
+
+The map() function would look very similar, but would require a lambda: 
+
+map(lambda x: x**3, x in range(1,3))
+
+Map functions are useful because you can take any iterable and apply a function to it in order to generate a new iterable.
+
+The filter() function would correspond to adding an 'if' statement to a list comprehension.  It takes in a boolean function and list and spits out the elements in the list that leave it true.
+
+Here's an example of finding the even numbers of the beginnign of the fibonacci sequence:
+
+fib = [0,1,1,2,3,5,8,13,21,34,55]
+result = filter(lambda x: x % 2, fib)
+
+Dictionary comprehensions can do basically the same thing as a list comprehension, but it will create a dictionary, with the inputs as keys.  Here's an example:
+
+D = {x: x**2 for x in [1,2,3,4,5]}
+
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+Set comprehensions do pretty much the same thing as list comprehensions except that they can take sets as inputs--sequence doesn't matter.  Set comprehensions are useful for filtering out repeat values, such as the one below:
+
+names = [ 'Bob', 'JOHN', 'alice', 'bob', 'ALICE', 'J', 'Bob' ]
+
+{ name[0].upper() + name[1:].lower() for name in names if len(name) > 1 }
+
+{ 'Bob', 'John', 'Alice' }
 
 ---
 
@@ -51,7 +82,7 @@ date_start = '01-02-2013'
 date_stop = '07-28-2015'
 ```
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> a) 937
 
 b.  
 ```
@@ -59,7 +90,7 @@ date_start = '12312013'
 date_stop = '05282015'  
 ```
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> b) 513
 
 c.  
 ```
@@ -67,7 +98,7 @@ date_start = '15-Jan-1994'
 date_stop = '14-Jul-2015'  
 ```
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE  
+>> c) 7850  
 
 Place code in this file: [q5_datetime.py](python/q5_datetime.py)
 
