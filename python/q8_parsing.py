@@ -5,13 +5,32 @@
 # then print the name of the team with the smallest difference in ‘for’ and ‘against’ goals.
 
 
-import csv
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Aug 29 09:57:44 2015
 
-  def read_data(data):
-   # COMPLETE THIS FUNCTION
+@author: gregoryfriedman
+"""
 
-  def get_min_score_difference(self, parsed_data):
-    # COMPLETE THIS FUNCTION
+import pandas
 
-  def get_team(self, index_value, parsed_data):
-    # COMPLETE THIS FUNCTION
+def read_data(data):
+    return pandas.read_csv(data)
+
+#print read_data('football.csv')
+pd = read_data('football.csv')
+
+def get_min_score_difference(pd):
+    pd['Score_Difference'] = pd['Goals'] - pd['Goals Allowed']
+    pd['Absolute_Difference'] = abs(pd['Score_Difference'])
+    gd = pd.loc[:,['Team','Score_Difference', 'Absolute_Difference']]
+    return gd
+
+#print get_min_score_difference(pd)
+gd = get_min_score_difference(pd)
+
+def get_team(gd, view):
+    closest = gd.sort(columns='Absolute_Difference')
+    return closest[0: view]
+
+print get_team(gd, 1)
