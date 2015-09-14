@@ -38,30 +38,47 @@ Explain list comprehensions. Give examples and show equivalents with `map` and `
 
 >> A list comprehension is a way to create a list by specifying a logic for generating the members and a range. For example: 
 
+```
 new_list = [x**3 for x in range(1,3)]
 
 [1, 8]
 
-The map() function would look very similar, but would require a lambda: 
+```
+
+>>The map() function would look very similar, but would require a lambda: 
+
+```
 
 map(lambda x: x**3, x in range(1,3))
 
-Map functions are useful because you can take any iterable and apply a function to it in order to generate a new iterable.
+```
 
-The filter() function would correspond to adding an 'if' statement to a list comprehension.  It takes in a boolean function and list and spits out the elements in the list that leave it true.
+>>Map functions are useful because you can take any iterable and apply a function to it in order to generate a new iterable.
 
-Here's an example of finding the even numbers of the beginnign of the fibonacci sequence:
+>>The filter() function would correspond to adding an 'if' statement to a list comprehension.  It takes in a boolean function and list and spits out the elements in the list that leave it true.
+
+>>Here's an example of finding the even numbers of the beginnign of the fibonacci sequence:
+
+```
 
 fib = [0,1,1,2,3,5,8,13,21,34,55]
 result = filter(lambda x: x % 2, fib)
 
-Dictionary comprehensions can do basically the same thing as a list comprehension, but it will create a dictionary, with the inputs as keys.  Here's an example:
+```
+
+>>Dictionary comprehensions can do basically the same thing as a list comprehension, but it will create a dictionary, with the inputs as keys.  Here's an example:
+
+```
 
 D = {x: x**2 for x in [1,2,3,4,5]}
 
 {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
-Set comprehensions do pretty much the same thing as list comprehensions except that they can take sets as inputs--sequence doesn't matter.  Set comprehensions are useful for filtering out repeat values, such as the one below:
+```
+
+>>Set comprehensions do pretty much the same thing as list comprehensions except that they can take sets as inputs--sequence doesn't matter.  Set comprehensions are useful for filtering out repeat values, such as the one below:
+
+```
 
 names = [ 'Bob', 'JOHN', 'alice', 'bob', 'ALICE', 'J', 'Bob' ]
 
@@ -70,6 +87,8 @@ names = [ 'Bob', 'JOHN', 'alice', 'bob', 'ALICE', 'J', 'Bob' ]
 { 'Bob', 'John', 'Alice' }
 
 ---
+
+```
 
 ###Complete the following problems by editing the files below:
 
