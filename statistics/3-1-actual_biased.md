@@ -1,3 +1,105 @@
 [Think Stats Chapter 3 Exercise 1](http://greenteapress.com/thinkstats2/html/thinkstats2004.html#toc31) (actual vs. biased)
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Exercise 3.1: Something like the class size paradox appears if you survey
+children and ask how many children are in their family. Families with many
+children are more likely to appear in your sample, and families with no
+children have no chance to be in the sample.
+
+>>Use the NSFG respondent variable NUMKDHH to construct the actual distribution
+for the number of children under 18 in the household.
+
+>>The code for this part is:
+
+```
+import chap01soln
+import thinkstats2
+import thinkplot
+
+resp = chap01soln.ReadFemResp()
+pmf = thinkstats2.Pmf(resp.numkdhh)
+
+```
+>>Printing the pmf, we get a dictionary of values & probablities:
+
+```
+Pmf({0: 0.46617820227659301, 1: 0.21405207379301322, 2: 0.19625801386889966, 3: 0.087138558157791451, 4: 0.025644380478869556, 5: 0.010728771424833181})
+```
+
+>>Now compute the biased distribution we would see if we surveyed the children
+and asked them how many children under 18 (including themselves)
+are in their household.
+
+>>The code:
+
+```
+def BiasPmf(pmf, label=''):
+    """Returns the Pmf with oversampling proportional to value.
+
+    If pmf is the distribution of true values, the result is the
+    distribution that would be seen if values are oversampled in
+    proportion to their values; for example, if you ask students
+    how big their classes are, large classes are oversampled in
+    proportion to their size.
+
+    Args:
+      pmf: Pmf object.
+      label: string label for the new Pmf.
+
+     Returns:
+       Pmf object
+    """
+    new_pmf = pmf.Copy(label=label)
+    
+    for x, p in pmf.Items(): #multiply each probability by children reporting
+        new_pmf.Mult(x, x)
+        
+    new_pmf.Normalize() #normalize the probability so the total = 1
+    return new_pmf
+
+biased = BiasPmf(pmf, label='biased')
+
+```
+
+>>The new probabilities are shown in the following dictionary:
+
+```
+({0: 0.0, 1: 0.20899335717935616, 2: 0.38323965252938175, 3: 0.25523760858456823, 4: 0.10015329586101177, 5: 0.052376085845682166})
+
+```
+
+>>Obviously, the households with no kids had no kids to be surveyed.  The 0-child household, which was the mode of the actual data, is now completely unrepresented in the biased data.  That change will account for the large difference between the 2 data sets later on, when the means are calculated.
+
+>>Plot the actual and biased distributions, and compute their means.
+
+>>The code:
+
+```
+
+#Plots
+thinkplot.PrePlot(2)
+thinkplot.Pmfs([pmf, biased])
+thinkplot.Show()
+
+#Means
+actual_mean = pmf.Mean()
+biased_mean = biased.Mean()
+
+```
+>>The output of the plots is:
+
+```
+![Biased vs. Plots](data:image/png;base64,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)
+
+```
+
+>>Finally the means:
+
+```
+
+Actual Mean Number of Children: 1.02420515504
+Biased Mean Number of Children: 2.40367910066
+
+```
+
+>>So as mentioned earlier, without counting the vast number of 0-child households, the mean household appears to be more than double the size it actually is.  One other note is that the other reason for the discrepancy is that each household child is counted as many times as the children in the household, not just once as would be accurate (except in the case of the one-child household). 
+
