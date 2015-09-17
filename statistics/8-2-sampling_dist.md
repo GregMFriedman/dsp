@@ -76,3 +76,4 @@ pyplot.show()
 
 ![Standard Error as a Function of n](https://github.com/GregMoney85/dsp/blob/master/img/Standard_Error_N.png)
 
+>>It seems that as the sample size increases, the standard error decays exponentially.
