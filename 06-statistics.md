@@ -50,14 +50,53 @@ Bayes' Theorem is an important tool in understanding what we really know, given 
 
 Elvis Presley had a twin brother who died at birth.  What is the probability that Elvis was an identical twin? Assume we observe the following probabilities in the population: fraternal twin is 1/125 and identical twin is 1/300.  
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> Using Bayes Theorem, we can restate the question as "What is the probability that Elvis was an identical twin **given** we know that he's a twin?"  That yields the following probabilities:
+
+```
+pFrat = float(1.0/125.0)
+pID = float(1.0/300.0)
+pNorm = float(pFrat + pID)
+pTwin_Given_ID = float(1)
+
+```
+>>With those probabilities defined, we can plug them into the formula:
+
+```
+pID_Given_Twin = float((pID * pTwin_Given_ID) / pNorm)
+print pID_Given_Twin
+
+```
+
+>>This yields a probability of `0.294117647059`, a little under **30%**.
 
 ---
 
 ###Q8. Bayesian &amp; Frequentist Comparison  
 How do frequentist and Bayesian statistics compare?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+>> **Frequentist statistics** is one of a number of possible techniques of formulating generally applicable schemes for making statistical inference: drawing conclusions from sample data by the emphasis on the frequency or proportion of the data. This is the inference framework in which the well-established methodologies of **statistical hypothesis testing** and **confidence intervals** are based.
+
+>>**Bayesian inference** is a method of statistical inference in which Bayes' theorem is used to update the probability for a hypothesis as evidence is acquired.  The critical point about Bayesian inference, then, is that it provides a principled way of **combining new evidence with prior beliefs**, through the application of **Bayes' rule**. This is in **contrast to frequentist inference**, which relies only on the evidence as a whole, with **no reference to prior beliefs**.
+
+>>While "probabilities" are involved in both approaches to inference, the probabilities are associated with different types of things. The result of a **Bayesian approach** can be a probability distribution for what is known about the parameters given the results of the experiment or study. The result of a **frequentist approach** is either a "true or false" conclusion from a significance test or a conclusion in the form that a given sample-derived confidence interval covers the true value: either of these conclusions has a given probability of being correct, where this probability has either a frequency probability interpretation or a pre-experiment interpretation.
+
+>>A real-world example from someone on a forum:
+
+>>Here is how I would explain the basic difference to my grandma:
+
+>>I have misplaced my phone somewhere in the home. I can use the phone locator on the base of the instrument to locate the phone and when I press the phone locator the phone starts beeping.
+
+>>Problem: Which area of my home should I search?
+
+>>Frequentist Reasoning:
+
+>>I can hear the phone beeping. I also have a mental model which helps me identify the area from which the sound is coming from. Therefore, upon hearing the beep, I infer the area of my home I must search to locate the phone.
+
+>>Bayesian Reasoning:
+
+>>I can hear the phone beeping. Now, apart from a mental model which helps me identify the area from which the sound is coming from, I also know the locations where I have misplaced the phone in the past. So, I combine my inferences using the beeps and my prior information about the locations I have misplaced the phone in the past to identify an area I must search to locate the phone.
+
+>>My takeaway is that the frequentist tries to approach results of an experiment as if they were in a vacuum and those results are the only things from which it is OK to draw conclusions.  The Baynesian seeks to quantitatively apply assumptions, that may be updated based on the results, in order to make conclusions.
 
 ---
 
