@@ -62,6 +62,44 @@ for n in [10, 25, 50, 100, 500, 1000]:
     print(n, stderr)
 
 ```
+
+>>This returns:
+
+```
+Experiment 3
+standard error 0.829760765922
+confidence interval (1.2676575635779865, 3.7082382969504137)
+Writing estimation2.pdf
+Writing estimation2.eps
+10 0.829760765922
+standard error 0.427188472956
+confidence interval (1.4832534288771413, 2.8452347030168337)
+Writing estimation2.pdf
+Writing estimation2.eps
+25 0.427188472956
+standard error 0.292813371758
+confidence interval (1.5940412801485089, 2.5722863327606955)
+Writing estimation2.pdf
+Writing estimation2.eps
+50 0.292813371758
+standard error 0.199557650527
+confidence interval (1.7126792243275946, 2.364068835320615)
+Writing estimation2.pdf
+Writing estimation2.eps
+100 0.199557650527
+standard error 0.0906526303433
+confidence interval (1.8673409688005425, 2.1690205453490403)
+Writing estimation2.pdf
+Writing estimation2.eps
+500 0.0906526303433
+standard error 0.0614173300018
+confidence interval (1.8958614987775091, 2.1030759642829122)
+
+```
+
+>> As the sample size goes up, standard error decreases and the confidence interval converges on both sides towards the value of lambda, in this case 2.
+
+
 >> Repeat the experiment with a few different values of n and make a plot of
 standard error versus n. 
 
