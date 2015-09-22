@@ -87,7 +87,7 @@ biased_mean = biased.Mean()
 ```
 >>The output of the plots is:
 
-![Biased vs. Plots](https://github.com/GregMFriedman/dsp/blob/master/img/Actual_Biased%20Plots.png)
+![Biased vs. Plots](https://github.com/GregMFriedman/dsp/blob/master/img/actual_biased.png)
 
 
 >>Finally the means:
